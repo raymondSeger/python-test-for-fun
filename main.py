@@ -1,7 +1,4 @@
-#simple comment
+def simple_function(param1, param2):
+    return param1+param2
 
-'''
-multiline comment
-in python
-they don't use /* */ or //
-'''
+print( simple_function(1,3) )
