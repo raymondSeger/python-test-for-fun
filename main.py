@@ -1,6 +1,7 @@
-string1 = "hi all";
+#simple comment
 
-if( 'hi' in string1 ):
-    print('found it')
-else:
-    print('nope')
+'''
+multiline comment
+in python
+they don't use /* */ or //
+'''
