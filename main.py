@@ -1,4 +1,7 @@
-a = [-1, 1, 66.25, 333, 333, 1234.5]
-del a[0]
+tuple_example = (1, 2, 3)
+x, y, z = tuple_example
 
-print(a) #[1, 66.25, 333, 333, 1234.5]
+print(tuple_example) # (1, 2, 3)
+print(x) #1
+print(y) #2
+print(z) #3
