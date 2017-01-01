@@ -1,3 +1,6 @@
 from beeprint import pp
 
-pp(['a','b','c'])
+try:
+    10 * (1/0)
+except ZeroDivisionError as err:
+    print(err)
