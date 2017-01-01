@@ -1,6 +1,8 @@
-def increment_by(n):
-    return lambda x: x + n
+from collections import deque
 
-function1 = increment_by(10)
-print( function1(0) ) #10
-print( function1(15) ) #25
+queue = deque(["Eric", "John", "Michael"])
+queue.append("Terry")           # Terry arrives
+queue.append("Graham")          # Graham arrives
+queue.popleft()                 # The first to arrive now leaves
+
+print(queue) # deque(['John', 'Michael', 'Terry', 'Graham'])
