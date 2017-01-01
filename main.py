@@ -1,11 +1,7 @@
-squares = [1, 4, 9, 16, 25]
+def parrot(param1, param2='a stiff', param3='world'):
+    print(param1)
+    print(param2)
+    print(param3)
 
-print( squares )
-
-print( squares[1:])
-
-for value in squares:
-    print(value)
-
-for i in range(5):
-    print(i)
+parrot('hi', param3='all')
+    
