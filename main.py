@@ -1,19 +1,6 @@
-def cheeseshop(kind, *arguments, **keywords):
-    print(kind)
-    print(arguments) #arguments before there's a keyword argument
-    print(keywords)
+def increment_by(n):
+    return lambda x: x + n
 
-"""
-hi
-('every', 'one', 'how', 'are', 'you')
-{}
-"""
-cheeseshop('hi', 'every', 'one', 'how', 'are', 'you')
-
-
-"""
-hi
-('all', 'how')
-{'param1': 'every', 'param2': 'one', 'param3': 'how', 'param5': 'you', 'param4': 'are'}
-"""
-cheeseshop('hi', 'all', 'how', param1='every', param2='one', param3='how', param4='are', param5='you')
+function1 = increment_by(10)
+print( function1(0) ) #10
+print( function1(15) ) #25
