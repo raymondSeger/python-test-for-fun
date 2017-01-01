@@ -1,23 +1,17 @@
-from beeprint import pp
+from string import Template
 
-class Complex:
-    """A simple example class"""
+# Coordinates: 37.24N, -115.81W
+print( 'Coordinates: {latitude}, {longitude}'.format(latitude='37.24N', longitude='-115.81W') )
 
-    def __init__(self, realpart, imagpart):
-        self.r = realpart
-        self.i = imagpart
+#a, b, c
+print( '{0}, {1}, {2}'.format('a', 'b', 'c') )
 
-    def f(self):
-        return 'hello world'
+coord = {'latitude': '37.24N', 'longitude': '-115.81W'}
 
-complex = Complex(1,2)
+print(*coord) #latitude longitude
 
-"""
-instance(Complex):
-  i: 2,
-  r: 1
-"""
-pp(complex)
+print( 'Coordinates: {latitude}, {longitude}'.format(**coord) )
 
-print(complex.f()) #hello world
 
+s = Template('$who likes $what')
+print(s.substitute(who='tim', what='kung pao')) #tim likes kung pao
