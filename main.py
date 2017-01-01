@@ -1,8 +1,4 @@
-from collections import deque
+a = [-1, 1, 66.25, 333, 333, 1234.5]
+del a[0]
 
-queue = deque(["Eric", "John", "Michael"])
-queue.append("Terry")           # Terry arrives
-queue.append("Graham")          # Graham arrives
-queue.popleft()                 # The first to arrive now leaves
-
-print(queue) # deque(['John', 'Michael', 'Terry', 'Graham'])
+print(a) #[1, 66.25, 333, 333, 1234.5]
