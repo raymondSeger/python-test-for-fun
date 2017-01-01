@@ -1,17 +1,9 @@
-from string import Template
+from enum import Enum
 
-# Coordinates: 37.24N, -115.81W
-print( 'Coordinates: {latitude}, {longitude}'.format(latitude='37.24N', longitude='-115.81W') )
+class Shape(Enum):
+    SQUARE = 2
+    DIAMOND = 1
+    CIRCLE = 3
+    ALIAS_FOR_SQUARE = 2
 
-#a, b, c
-print( '{0}, {1}, {2}'.format('a', 'b', 'c') )
-
-coord = {'latitude': '37.24N', 'longitude': '-115.81W'}
-
-print(*coord) #latitude longitude
-
-print( 'Coordinates: {latitude}, {longitude}'.format(**coord) )
-
-
-s = Template('$who likes $what')
-print(s.substitute(who='tim', what='kung pao')) #tim likes kung pao
+print(Shape.SQUARE) #Shape.SQUARE
