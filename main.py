@@ -1,4 +1,1 @@
-print("""
-hi all
-how are you
-""")
+print( 3 * 'un' + 'ium' )
