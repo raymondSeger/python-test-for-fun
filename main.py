@@ -1,16 +1,11 @@
-word = 'Python'
+squares = [1, 4, 9, 16, 25]
 
-print( word [0] )  # P
-print( word [5] ) #n
-print( word [0:] ) #Python
-print( word [0:6] ) #Python
-print( word [0:5] ) #Pytho
+print( squares )
 
-print( word [-1] ) #n
-print( word [-2] ) #o
+print( squares[1:])
 
-print( word [:3] ) #Pyt
-print( word [3:] ) #hon
-print( word [:3] + word [3:] ) #Python
+for value in squares:
+    print(value)
 
-print( word [:] ) #Python
+for i in range(5):
+    print(i)
