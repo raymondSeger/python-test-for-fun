@@ -1,2 +1,3 @@
+from beeprint import pp
 
-print( set( ['apple', 'orange', 'apple', 'pear', 'orange', 'banana'] ) ) #{'orange', 'banana', 'pear', 'apple'}
+pp(['a','b','c'])
