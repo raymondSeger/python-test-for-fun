@@ -1,9 +1,5 @@
-from enum import Enum
+import requests
+import pprint
 
-class Shape(Enum):
-    SQUARE = 2
-    DIAMOND = 1
-    CIRCLE = 3
-    ALIAS_FOR_SQUARE = 2
-
-print(Shape.SQUARE) #Shape.SQUARE
+r = requests.get('https://api.github.com/events')
+pprint.pprint(r.headers)
