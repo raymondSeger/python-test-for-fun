@@ -9,42 +9,13 @@ from tkinter import ttk
 class HelloApp:
 
     def __init__(self, master):
-        self.button = ttk.Button(master, text="Click Me", command=self.button_handler)
-        self.button.pack()
+        self.entry = ttk.Entry(master)
+        self.entry.pack()
 
-        self.button2 = ttk.Button(master, text="Click Me")
-        self.button2.pack()
-        self.button2.bind('<ButtonPress>', self.mouse_press_handler2)
-
-        master.bind("<KeyPress>", self.key_press_handler)
-
-        master.bind("<Control-c>", self.control_c_handler)
-
-        master.bind('<ButtonPress>', self.mouse_press_handler )
-
-    def mouse_press_handler(self, event):
-        print(event.type)
-        print(event.widget)
-        print(event.num)
-        print(event.x)
-        print(event.type)
-
-    def mouse_press_handler2(self, event):
-        print("I am pressing button 2")
-
-    def button_handler(self):
-        print("hi all")
-
-    def key_press_handler(self, event):
-        print(event.type)
-        print(event.widget)
-        print(event.char)
-        print(event.keysym)
-        print(event.keycode)
-
-    def control_c_handler(self, event):
-        print('control c pressed')
-
+        # bind to copy event
+        self.entry.bind("<<Copy>>", lambda e:print("Copy") )
+        #bind to paste event
+        self.entry.bind("<<Paste>>", lambda e:print("Paste") )
 
 
 def main():
