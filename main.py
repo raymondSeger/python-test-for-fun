@@ -1,17 +1,32 @@
-import tkinter
+#!/usr/bin/python3
+
+from tkinter import *
 from tkinter import ttk
 
-root = tkinter.Tk()
-button = tkinter.ttk.Button(root, text="Click me")
-button.pack()
+class HelloApp:
 
-print( button["text"] ) #Click me
+    def __init__(self, master):
 
-button.config(text = "Push me") #text becomes Push me
-print( button.config() ) #{'class': ('class', '', '', '', ''), 'cursor': ('cursor', 'cursor', 'Cursor', '', ''), 'command': ('command', 'command', 'Command', '', ''), 'underline': ('underline', 'underline', 'Underline', -1, -1), 'compound': ('compound', 'compound', 'Compound', <index object: 'none'>, <index object: 'none'>), 'width': ('width', 'width', 'Width', '', ''), 'state': ('state', 'state', 'State', <index object: 'normal'>, <index object: 'normal'>), 'padding': ('padding', 'padding', 'Pad', '', ''), 'default': ('default', 'default', 'Default', <index object: 'normal'>, <index object: 'normal'>), 'takefocus': ('takefocus', 'takeFocus', 'TakeFocus', 'ttk::takefocus', 'ttk::takefocus'), 'style': ('style', 'style', 'Style', '', ''), 'textvariable': ('textvariable', 'textVariable', 'Variable', '', ''), 'text': ('text', 'text', 'Text', '', 'Push me'), 'image': ('image', 'image', 'Image', '', '')}
+        self.label = ttk.Label(master, text = "Hello, Tkinter!")
+        self.label.grid(row = 0, column = 0, columnspan = 2)
 
-label = tkinter.ttk.Label(root, text="Hi all")
-label.pack()
+        ttk.Button(master, text = "Texas", command = self.texas_hello).grid(row = 1, column = 0)
 
-root.mainloop()
+        ttk.Button(master, text = "Hawaii", command = self.hawaii_hello).grid(row = 1, column = 1)
 
+    #changes the text when button clicked
+    def texas_hello(self):
+        self.label.config(text = 'Howdy, Tkinter!')
+
+    # changes the text when button clicked
+    def hawaii_hello(self):
+        self.label.config(text = 'Aloha, Tkinter!')
+
+
+def main():
+    root = Tk()
+    app = HelloApp(root)
+    root.mainloop()
+
+if(__name__ == "__main__"):
+    main()
