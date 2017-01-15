@@ -6,21 +6,21 @@ from tkinter import ttk
 class HelloApp:
 
     def __init__(self, master):
-        self.progressbar = ttk.Progressbar(master, orient=HORIZONTAL, length=200)
-        self.progressbar.pack()
-        self.progressbar.config(mode='indeterminate')
-        self.progressbar.start()
-        #self.progressbar.stop()
+        self.frame = ttk.Frame(master)
+        self.frame.pack()
 
-        self.progressbar2 = ttk.Progressbar(master, orient=HORIZONTAL, length=200)
-        self.progressbar2.pack()
-        self.progressbar2.config(mode='determinate', maximum=11.0, value=4.2)
+        self.frame.config(height=100, width=200)
+        self.frame.config(relief=RIDGE)
 
-        # create scale
-        value = DoubleVar()
-        self.scale = ttk.Scale(master, orient=HORIZONTAL, length=400, variable=value, from_=0.0, to=11.0)
-        self.scale.pack()
-        self.scale.set(11.0)
+        #put the button in the frame we just created
+        self.button1 = ttk.Button(self.frame, text="Click Me")
+        self.button1.pack()
+        # add padding to the frame
+        self.frame.config(padding=(30,15))
+
+        self.labelFrame = ttk.LabelFrame(master, height=100, width=200, text="My Frame")
+        self.labelFrame.pack()
+
 
 def main():
     root = Tk()
