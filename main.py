@@ -6,35 +6,30 @@ from tkinter import ttk
 class HelloApp:
 
     def __init__(self, master):
+        #create checkbox
+        self.checkbutton = ttk.Checkbutton(master, text="SPAM?")
+        self.checkbutton.pack()
 
-        self.label = ttk.Label(master, text = "Hello, Tkinter!")
-        self.label.pack()
+        self.checkbutton2 = ttk.Checkbutton(master, text="SPAM?")
+        self.checkbutton2.pack()
 
-        ttk.Button(master, text = "Texas", command = self.texas_hello).pack()
+        self.radiobutton = ttk.Radiobutton(master, text="SPAM?")
+        self.radiobutton.pack()
 
-        self.button2 = ttk.Button(master, text = "Hawaii", command = self.hawaii_hello)
-        self.button2.pack()
+        self.radiobutton2 = ttk.Radiobutton(master, text="SPAM?")
+        self.radiobutton2.pack()
 
-        self.label2 = ttk.Label(master, text="Hawaii HawaiiHawaii HawaiiHawaiiHawaiiHawaiiHawaiiHawaiiHawaiiHawaiiHawaiiHawaiiHawaiiHawaii")
-        self.label2.config(wraplength=150) # 150 width/chars wrapping
-        self.label2.config(justify=CENTER) #textalign center
-        self.label2.config(foreground='blue', background='yellow')
-        self.label2.img = PhotoImage(file='a634dc.png')
-        self.label2.img = self.label2.img.subsample(5,5) # make logo smaller
-        self.label2.config(image=self.label2.img, compound='left')
-        self.label2.pack()
+        string_var = StringVar()
+        string_var.set("SPAM!")
+        print( string_var.get() ) #SPAM!
 
-        #you can "click" the button
-        self.button2.invoke()
+        # when we check one of the checkbox, both will be the same because both use the same StringVar.
+        self.checkbutton.config(variable=string_var, onvalue="SPAM PLEASE", offvalue="BOO SPAM")
+        self.checkbutton2.config(variable=string_var, onvalue="SPAM PLEASE", offvalue="BOO SPAM")
 
-
-    #changes the text when button clicked
-    def texas_hello(self):
-        self.label.config(text = 'Howdy, Tkinter!')
-
-    # changes the text when button clicked
-    def hawaii_hello(self):
-        self.label.config(text = 'Aloha, Tkinter!')
+        # when we check one of the radiobutton, both will be the same because both use the same StringVar.
+        self.radiobutton.config(variable=string_var, )
+        self.radiobutton2.config(variable=string_var,)
 
 
 def main():
