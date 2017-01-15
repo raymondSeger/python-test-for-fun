@@ -1,42 +1,30 @@
 #!/usr/bin/python3
 
 from tkinter import *
+from tkinter import messagebox
+from tkinter import filedialog
+from tkinter import colorchooser
 from tkinter import ttk
 
 class HelloApp:
 
     def __init__(self, master):
-        self.button1 = ttk.Button(master, text="Button 1")
-        self.button1.pack()
-        self.button2 = ttk.Button(master, text="Button 2")
-        self.button2.pack()
+        # messagebox.showinfo(title="the title",message="The message")
+        # messagebox.showerror(title="the title", message="The message")
+        # messagebox.showwarning(title="the title", message="The message")
 
-        self.style = ttk.Style()
+        #value = messagebox.askyesno(title="THe title", message="The message")
+        # print(value) # true or false
 
-        # ('winnative', 'clam', 'alt', 'default', 'classic', 'vista', 'xpnative')
-        print(self.style.theme_names())
+        # filename = filedialog.askopenfile()
+        # print(filename)  # the location
 
-        self.style.theme_use('winnative')
+        tuple_returned = colorchooser.askcolor()
 
-        # set defaults for TTK
-        print( self.button1.winfo_class() )  #TButton
-        self.style.configure('TButton', foreground="blue")
+        #((152.59375, 172.671875, 149.58203125), '#98ac95')
+        # first is the RGB, the second is the hex
+        print(tuple_returned)
 
-        # create "CSS class" and use it for a button
-        self.style.configure('Alarm.TButton', foreground="orange", font=("Arial", 24, 'bold'))
-        self.button2.config(style="Alarm.TButton")
-
-        # add style for pressed state / disabled state
-        self.style.map("Alarm.TButton", foreground=[('pressed', 'pink'), ('disabled', 'grey')])
-        # self.button2.state(['disabled'])
-
-        # get all the states
-        """
-        [('Button.border',
-          {'children': [('Button.padding', {'children': [('Button.label', {'sticky': 'nswe'})], 'sticky': 'nswe'})],
-           'sticky': 'nswe'})]
-        """
-        print( self.style.layout('TButton') )
 
 
 def main():
