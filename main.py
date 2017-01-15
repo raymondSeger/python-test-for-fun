@@ -6,14 +6,17 @@ from tkinter import ttk
 class HelloApp:
 
     def __init__(self, master):
-        # create text field / entry
-        self.entry = ttk.Entry(master, width=30)
-        self.entry.pack()
+        #create select button
+        self.month = StringVar()
+        self.combobox = ttk.Combobox(master, textvariable=self.month)
+        self.combobox.pack()
+        self.combobox.config(values=("Jan", "feb", "mar"))
+        # set default value
+        self.combobox.set("Jan")
 
-        self.entry.insert(0, "Enter your password")
-        #everything you type becomes *
-        # self.entry.config(show="*")
-
+        self.year = StringVar()
+        self.spinbox = Spinbox(master, from_=1990, to=2017, textvariable=self.year)
+        self.spinbox.pack()
 
 def main():
     root = Tk()
