@@ -9,22 +9,46 @@ from tkinter import ttk
 class HelloApp:
 
     def __init__(self, master):
-        # messagebox.showinfo(title="the title",message="The message")
-        # messagebox.showerror(title="the title", message="The message")
-        # messagebox.showwarning(title="the title", message="The message")
+        master.option_add('*tearOff', False)  # use this for menu
 
-        #value = messagebox.askyesno(title="THe title", message="The message")
-        # print(value) # true or false
+        self.menubar = Menu(master)
+        master.config(menu = self.menubar)
 
-        # filename = filedialog.askopenfile()
-        # print(filename)  # the location
+        #create the menus
+        self.file = Menu(self.menubar)
+        self.menubar.add_cascade(menu=self.file, label="File")
+        self.edit = Menu(self.menubar)
+        self.menubar.add_cascade(menu=self.edit, label="Edit")
+        self.help_ = Menu(self.menubar)
+        self.menubar.add_cascade(menu=self.help_, label="Help")
 
-        tuple_returned = colorchooser.askcolor()
+        # add commands in file
+        self.file.add_command(label="New", command= lambda:print('New File') )
+        self.file.add_separator()
 
-        #((152.59375, 172.671875, 149.58203125), '#98ac95')
-        # first is the RGB, the second is the hex
-        print(tuple_returned)
+        self.file.add_command(label="Open...", command=lambda: print('Opening File'))
+        self.file.add_command(label="Save", command=lambda: print('Saving File'))
 
+        # add description to "New" command , first one we created
+        self.file.entryconfig("New", accelerator = "Ctrl + N")
+
+        # add image
+        self.logo = PhotoImage(file="a634dc.png").subsample(100, 100)
+        self.file.entryconfig("Open...", image=self.logo, compound="left")
+
+        #delete command
+        self.file.delete("Save")
+
+        # add more Menu with child commands
+        self.save = Menu(self.file)
+        self.file.add_cascade(menu=self.save, label="Save")
+        self.save.add_command(label="Save As", command= lambda: print("Saving as..."))
+        self.save.add_command(label="Save All", command=lambda: print("Saving All..."))
+
+        self.choice = IntVar()
+        self.edit.add_radiobutton(label="One", variable=self.choice, value=1)
+        self.edit.add_radiobutton(label="Two", variable=self.choice, value=2)
+        self.edit.add_radiobutton(label="Three", variable=self.choice, value=3)
 
 
 def main():
