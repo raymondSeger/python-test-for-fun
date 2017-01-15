@@ -12,9 +12,25 @@ class HelloApp:
         self.button = ttk.Button(master, text="Click Me", command=self.button_handler)
         self.button.pack()
 
+        self.button2 = ttk.Button(master, text="Click Me")
+        self.button2.pack()
+        self.button2.bind('<ButtonPress>', self.mouse_press_handler2)
+
         master.bind("<KeyPress>", self.key_press_handler)
 
         master.bind("<Control-c>", self.control_c_handler)
+
+        master.bind('<ButtonPress>', self.mouse_press_handler )
+
+    def mouse_press_handler(self, event):
+        print(event.type)
+        print(event.widget)
+        print(event.num)
+        print(event.x)
+        print(event.type)
+
+    def mouse_press_handler2(self, event):
+        print("I am pressing button 2")
 
     def button_handler(self):
         print("hi all")
