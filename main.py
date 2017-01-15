@@ -6,18 +6,25 @@ from tkinter import ttk
 class HelloApp:
 
     def __init__(self, master):
-        self.panedWindow = ttk.PanedWindow(master, orient=HORIZONTAL)
-        self.panedWindow.pack(fill = BOTH, expand = TRUE)
+        self.notebook = ttk.Notebook(master)
+        self.notebook.pack()
 
-        self.frame1 = ttk.Frame(self.panedWindow, width=100, height=300, relief= SUNKEN)
-        self.frame2 = ttk.Frame(self.panedWindow, width=400, height=400, relief=SUNKEN)
-        self.frame3 = ttk.Frame(self.panedWindow, width=50, height=400, relief=SUNKEN)
+        self.frame1 = ttk.Frame(self.notebook)
+        self.frame2 = ttk.Frame(self.notebook)
 
-        self.panedWindow.add(self.frame1, weight=1)
-        self.panedWindow.add(self.frame2, weight=1)
-        self.panedWindow.add(self.frame3, weight=1)
+        self.notebook.add(self.frame1, text="One")
+        self.notebook.add(self.frame2, text="Two")
 
-        self.panedWindow.forget(2) # hides the third frame
+        ttk.Button(self.frame1, text="Click Me").pack()
+
+        # add more frame
+        self.frame3 = ttk.Frame(self.notebook)
+        self.notebook.insert(1, self.frame3, text="Three") #first param is position
+
+        self.notebook.tab(1, state="disabled")
+        #self.notebook.tab(1, state="hidden")
+
+
 
 def main():
     root = Tk()
