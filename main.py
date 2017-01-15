@@ -6,20 +6,16 @@ from tkinter import ttk
 class HelloApp:
 
     def __init__(self, master):
-        self.frame = ttk.Frame(master)
-        self.frame.pack()
+        #master is the Tk() TopLevel object
+        master.title("The title")
+        master.title("a")
+        #master.state('zoomed') # fullscreen
 
-        self.frame.config(height=100, width=200)
-        self.frame.config(relief=RIDGE)
+        # master.resizable(False, False) # cannot be resized
 
-        #put the button in the frame we just created
-        self.button1 = ttk.Button(self.frame, text="Click Me")
-        self.button1.pack()
-        # add padding to the frame
-        self.frame.config(padding=(30,15))
+        master.maxsize(640, 480)
+        master.minsize(100, 100)
 
-        self.labelFrame = ttk.LabelFrame(master, height=100, width=200, text="My Frame")
-        self.labelFrame.pack()
 
 
 def main():
